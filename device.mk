@@ -381,10 +381,13 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+<<<<<<< HEAD:device.mk
 # Parts
 PRODUCT_PACKAGES += \
     XiaomiParts
 
+=======
+>>>>>>> 6ce2e2a6 (sm8150-common: Remove QTI perfd):msmnile.mk
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.xiaomi-libperfmgr
