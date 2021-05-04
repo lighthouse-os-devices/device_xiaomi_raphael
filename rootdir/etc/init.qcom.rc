@@ -29,6 +29,7 @@ import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 
 on early-init
+    start start_dmesg
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
     chmod 0755 /sys/kernel/debug/tracing
@@ -49,12 +50,16 @@ on early-init
     write /sys/bus/platform/devices/1d84000.ufshc/clkscale_enable 0
 
 on init
+    start start_dmesg
     # Create cgroup mount point for memory
     mkdir /sys/fs/cgroup/memory/bg 0750 root system
     write /sys/fs/cgroup/memory/bg/memory.swappiness 140
     write /sys/fs/cgroup/memory/bg/memory.move_charge_at_immigrate 1
     chown root system /sys/fs/cgroup/memory/bg/tasks
     chmod 0660 /sys/fs/cgroup/memory/bg/tasks
+
+on fs
+    start start_dmesg
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -140,6 +145,8 @@ on boot
     chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/msm_fb_ea_enable
 
 on post-fs-data
+    start start_dmesg
+
     # Create directory used by display clients
     mkdir /data/vendor/display 0770 system graphics
 
@@ -387,3 +394,12 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
     socket audio_hw_socket seqpacket 0666 system system
     onrestart restart audioserver
+
+service start_dmesg /system/bin/sh /system/bin/start_dmesg
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:ueventd:s0
+    

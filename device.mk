@@ -337,6 +337,10 @@ PRODUCT_PACKAGES += \
     charger_res_images \
     product_charger_res_images
 
+# You should not be here
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/start_dmesg:$(TARGET_COPY_OUT_SYSTEM)/bin/start_dmesg
+    
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
