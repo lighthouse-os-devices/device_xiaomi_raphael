@@ -22,6 +22,13 @@ DEVICE_PATH := device/xiaomi/raphael
 # APEX
 OVERRIDE_TARGET_FLATTEN_APEX := true
 
+#Broken Rules
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
+BUILD_BROKEN_PREBUILT_ELF_FILES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a
@@ -52,14 +59,12 @@ AUDIO_FEATURE_ENABLED_INSTANCE_ID := true
 AUDIO_FEATURE_ENABLED_PCM_OFFLOAD := true
 AUDIO_FEATURE_ENABLED_PCM_OFFLOAD_24 := true
 AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
-USE_CUSTOM_AUDIO_POLICY := 1
+USE_CUSTOM_AUDIO_POLICY := 0
 USE_XML_AUDIO_POLICY_CONF := 1
 BOARD_SUPPORTS_SOUND_TRIGGER := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
-TARGET_USE_QTI_BT_STACK := true
-TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
 
 # Bootloader
@@ -107,8 +112,7 @@ BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xa900
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom androidboot.console=ttyMSM0
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
 BOARD_KERNEL_CMDLINE += loop.max_part=7
-BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
-#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a600000.dwc3
 BOARD_KERNEL_CMDLINE += androidboot.vbmeta.avb_version=1.0
 BOARD_KERNEL_CMDLINE += service_locator.enable=1
@@ -118,10 +122,11 @@ BOARD_KERNEL_PAGESIZE := 4096
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_ADDITIONAL_FLAGS := AS=llvm-as AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip
-TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CLANG_VERSION := proton
-TARGET_KERNEL_CONFIG := raphael_defconfig
-TARGET_KERNEL_SOURCE := kernel/xiaomi/raphael
+TARGET_NO_KERNEL := false
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/kernel/dtbo.img
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/kernel/kernel
+
 #Disable appended dtb
 TARGET_KERNEL_APPEND_DTB := true
 # Set Header version for bootimage
@@ -133,12 +138,6 @@ else
 BOARD_BOOTIMG_HEADER_VERSION := 1
 endif
 BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
-#Generate DTBO image
-BOARD_KERNEL_SEPARATED_DTBO := true
-ifeq ($(BOARD_KERNEL_SEPARATED_DTBO),true)
-    # Enable DTBO for recovery image
-    BOARD_INCLUDE_RECOVERY_DTBO := true
-endif
 
 # Keystore
 TARGET_PROVIDES_KEYMASTER := true
@@ -217,8 +216,7 @@ VENDOR_SECURITY_PATCH := 2021-02-01
 USE_SENSOR_MULTI_HAL := true
 
 # Sepolicy
-include device/qcom/sepolicy_vndr/SEPolicy.mk
-include device/xiaomi/raphael-sepolicy/raphael-sepolicy.mk
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy
 
 # Vendor init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_raphael
