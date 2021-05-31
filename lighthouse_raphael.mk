@@ -32,3 +32,4 @@ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # Project Lighthouse stuff
 LIGHTHOUSE_BUILD_TYPE := OFFICIAL
+WITH_FOD_ANIMATIONS := true
