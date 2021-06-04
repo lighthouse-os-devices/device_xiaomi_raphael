@@ -142,7 +142,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/component-overrides_qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/component-overrides.xml
 
 # Dex
-# PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed
+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := verify
 
 # Display
 TARGET_BOARD_PLATFORM := msmnile
