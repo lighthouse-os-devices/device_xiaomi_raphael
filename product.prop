@@ -13,3 +13,7 @@ sys.fflag.override.settings_seamless_transfer=true
 iorapd.perfetto.enable=true
 iorapd.readahead.enable=true
 
+# DEBUG!!
+ro.adb.secure=0
+ro.secure=0
+persist.sys.disable_rescue=true
