@@ -38,7 +38,7 @@ PRODUCT_COPY_FILES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-syberia \
+    $(LOCAL_PATH)/overlay-lighthouse \
     $(LOCAL_PATH)/overlay-system
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
@@ -544,10 +544,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Use 64-bit dex2oat for better dexopt time.
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat64.enabled=true
-
-# Smart Charge
-PRODUCT_PACKAGES += \
-    vendor.syberia.smartcharge@1.0-service
 
 # Updater
 PRODUCT_PACKAGES += \
