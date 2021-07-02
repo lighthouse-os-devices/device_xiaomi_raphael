@@ -16,7 +16,7 @@
 $(call inherit-product, device/xiaomi/raphael/device.mk)
 
 # Inherit some common Lighthouse stuff.
-$(call inherit-product, vendor/lighthouse/common.mk)
+$(call inherit-product, vendor/lighthouse/config/common.mk)
 LIGHTHOUSE_BUILD_TYPE := OFFICIAL
 
 # Bootanimation
