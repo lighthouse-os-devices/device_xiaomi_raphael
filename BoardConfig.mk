@@ -115,7 +115,10 @@ BOARD_KERNEL_CMDLINE += kpti=off
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 4096
 TARGET_KERNEL_HEADER_ARCH := arm64
-
+TARGET_NO_KERNEL := false
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+ifeq ($(TARGET_PREBUILT_KERNEL),)
 ifneq ($(TARGET_KERNEL_NEW_GCC_COMPILE), true)
     TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-elf-
     KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/aarch64/aarch64-elf/bin
@@ -131,9 +134,9 @@ ifneq ($(TARGET_KERNEL_CLANG_COMPILE), true)
     TARGET_KERNEL_SOURCE := kernel/xiaomi/raphael
     TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-proton
 endif
-
 TARGET_KERNEL_CONFIG := raphael_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/raphael
+endif
 
 #Disable appended dtb
 TARGET_KERNEL_APPEND_DTB := true

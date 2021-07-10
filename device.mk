@@ -280,6 +280,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
+# Kernel Prebuilt
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/kernel:kernel \
+    $(LOCAL_PATH)/prebuilt/dtbo.img:dtbo.img
+
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.raphael
