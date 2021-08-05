@@ -2,3 +2,6 @@ vendor_public_prop(vendor_fp_prop)
 
 # Power
 type vendor_power_prop, property_type;
+
+#Thermal
+type vendor_thermal_prop, property_type;

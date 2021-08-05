@@ -12,3 +12,5 @@ type vendor_sysfs_hbm, sysfs_type, fs_type;
 
 # Power
 type proc_sched_energy_aware, proc_type, fs_type;
+
+type thermal_link_device, dev_type;
