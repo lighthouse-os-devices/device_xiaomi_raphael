@@ -271,6 +271,7 @@ PRODUCT_COPY_FILES += \
 # Init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    init.power.rc \
     init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sh \
