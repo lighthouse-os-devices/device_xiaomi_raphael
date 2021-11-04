@@ -1,0 +1,2 @@
+allow hal_health_default hal_pixelstats_hwservice:hwservice_manager find;
+binder_call(hal_health_default, pixelstats_system)
