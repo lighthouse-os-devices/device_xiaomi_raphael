@@ -10,5 +10,9 @@
 # Pixel Powerstats
 /vendor/bin/hw/android\.hardware\.power\.stats@1\.0-service\.raphael                                   u:object_r:hal_power_stats_default_exec:s0
 
+# Pixel Thermal
+/vendor/bin/hw/android\.hardware\.thermal@2\.0-service\.raphael                                        u:object_r:hal_thermal_default_exec:s0
+/vendor/bin/thermal_logd                                                                               u:object_r:init-thermal-logging-sh_exec:s0
+
 # Pixelstats
 /vendor/bin/pixelstats-vendor                                                                          u:object_r:pixelstats_vendor_exec:s0
