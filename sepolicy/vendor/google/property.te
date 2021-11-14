@@ -1,3 +1,6 @@
+# Insmod
+type vendor_device_prop, property_type;
+
 # Pixel PowerHal
 type vendor_power_prop, property_type;
 
