@@ -1,6 +1,9 @@
 # system binaries
 /system/bin/hw/hardware\.google\.pixelstats@1\.0-service                                               u:object_r:pixelstats_system_exec:s0
 
+# Pixel Health
+/vendor/bin/hw/android\.hardware\.health@2\.1-service\.raphael                                         u:object_r:hal_health_default_exec:s0
+
 # Pixel Powerhal
 /vendor/bin/hw/android\.hardware\.power-service\.raphael-libperfmgr                                    u:object_r:hal_power_default_exec:s0
 
