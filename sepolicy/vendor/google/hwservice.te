@@ -1,1 +1,2 @@
+# Pixelstats
 type hal_pixelstats_hwservice, hwservice_manager_type, vendor_hwservice_type;
