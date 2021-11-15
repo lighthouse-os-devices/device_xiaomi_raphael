@@ -14,3 +14,6 @@ r_dir_file(pixelstats_vendor, vendor_sysfs_battery_supply)
 
 # UeventListener
 allow pixelstats_vendor self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
+binder_use(pixelstats_vendor)
+allow pixelstats_vendor fwk_stats_service:service_manager find;
