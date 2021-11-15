@@ -17,3 +17,7 @@ allow pixelstats_vendor self:netlink_kobject_uevent_socket create_socket_perms_n
 
 binder_use(pixelstats_vendor)
 allow pixelstats_vendor fwk_stats_service:service_manager find;
+
+# OrientationCollector
+allow pixelstats_vendor fwk_sensor_hwservice:hwservice_manager find;
+binder_call(pixelstats_vendor, system_server)
