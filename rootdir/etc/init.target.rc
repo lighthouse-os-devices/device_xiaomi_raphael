@@ -248,7 +248,7 @@ service vendor.sec_nvm /vendor/bin/sec_nvm
     user system
     group system
 
-service vendor.thermal-engine /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine-xiaomi_msmnile.conf
+service vendor.thermal-engine /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine-msmnile-normal_mode.conf
    class main
    user root
    group root
