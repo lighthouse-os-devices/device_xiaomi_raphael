@@ -23,6 +23,9 @@
 # Power
 /vendor/bin/hw/android\.hardware\.power-service\.xiaomi-libperfmgr      u:object_r:hal_power_default_exec:s0
 
+# Pixel Powerstats
+/vendor/bin/hw/android\.hardware\.power\.stats@1\.0-service\.xiaomi     u:object_r:hal_power_stats_default_exec:s0
+
 # UFS
 /sys/devices(/platform)?/soc/[a-f0-9]+.ufshc/clkgate_enable          u:object_r:vendor_sysfs_scsi_host:s0
 

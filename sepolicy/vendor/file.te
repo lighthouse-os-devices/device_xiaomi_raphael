@@ -10,7 +10,16 @@ type sysfs_fod, sysfs_type, fs_type;
 # Livedisplay
 type vendor_sysfs_hbm, sysfs_type, fs_type;
 
-# Power
+# Define file types used by pixel powerhal and powerstats
+type sysfs_iio_devices, fs_type, sysfs_type;
+type sysfs_msm_subsys, sysfs_type, fs_type;
+type sysfs_scsi_devices_0000, sysfs_type, fs_type;
+type sysfs_msm_wlan, sysfs_type, fs_type;
 type proc_sched_energy_aware, proc_type, fs_type;
 
+# Thermal
 type thermal_link_device, dev_type;
+
+# Pixel Powerstats
+type sysfs_power_stats, sysfs_type, fs_type;
+type sysfs_power_stats_ignore, sysfs_type, fs_type;
