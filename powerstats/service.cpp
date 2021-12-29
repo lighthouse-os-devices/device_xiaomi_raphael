@@ -52,7 +52,6 @@ using android::hardware::google::pixel::powerstats::PowerEntityConfig;
 using android::hardware::google::pixel::powerstats::StateResidencyConfig;
 using android::hardware::google::pixel::powerstats::RailDataProvider;
 using android::hardware::google::pixel::powerstats::WlanStateResidencyDataProvider;
-using android::hardware::google::pixel::powerstats::DisplayStateResidencyDataProvider;
 
 int main(int /* argc */, char ** /* argv */) {
     ALOGI("power.stats service 1.0 is starting.");
