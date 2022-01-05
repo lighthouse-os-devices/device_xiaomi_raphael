@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/syberia_raphael.mk
+    $(LOCAL_DIR)/lighthouse_raphael.mk
 
 COMMON_LUNCH_CHOICES := \
-    syberia_raphael-user \
-    syberia_raphael-userdebug \
-    syberia_raphael-eng
+    lighthouse_raphael-user \
+    lighthouse_raphael-userdebug \
+    lighthouse_raphael-eng
