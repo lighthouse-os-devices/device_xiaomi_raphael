@@ -13,9 +13,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 $(call inherit-product, device/xiaomi/raphael/device.mk)
 
 # Inherit some common lighthouse stuff.
-$(call inherit-product, vendor/lighthouse/common.mk)
+$(call inherit-product, vendor/lighthouse/config/common.mk)
 LIGHTHOUSE_BUILD_TYPE := OFFICIAL
-WITH_GAPPS := true 
+WITH_GAPPS := true
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lighthouse_raphael
